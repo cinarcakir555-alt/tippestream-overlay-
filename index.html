@@ -1,1 +1,34 @@
-
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TipeeStream Overlay</title>
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;font-family:Arial,sans-serif}
+.overlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.92);opacity:0;padding:24px 30px;border-radius:20px;background:rgba(18,12,28,.96);color:#fff;text-align:center;border:2px solid #ff7a30;box-shadow:0 0 28px rgba(255,122,48,.4)}
+.overlay.show{animation:show .6s forwards}
+.overlay.hide{animation:hide .5s forwards}
+h1{margin:0 0 14px;font-size:28px;color:#ff8a4c}
+a{display:inline-block;padding:11px 18px;border-radius:10px;background:#ff7a30;color:#fff;text-decoration:none;font-weight:bold}
+@keyframes show{to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes hide{to{opacity:0;transform:translate(-50%,-50%) scale(.92)}}
+</style>
+</head>
+<body>
+<div id="overlay" class="overlay">
+<h1>DONEER VIA TIPEESTREAM</h1>
+<a href="https://www.tipeeestream.com/fazenl/donation" target="_blank" rel="noopener">Doneer nu →</a>
+</div>
+<script>
+const overlay=document.getElementById('overlay');
+function show(){overlay.className='overlay show'}
+function hide(){overlay.className='overlay hide'}
+show();
+setInterval(()=>{
+  hide();
+  setTimeout(show,240000);
+},30000);
+</script>
+</body>
+</html>
